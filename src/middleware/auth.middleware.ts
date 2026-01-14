@@ -1,9 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
+import User from "../models/User";
 
 const JWT_SECRET = process.env.JWT_SECRET || "secret123";
 
-export const protect = (req: Request, res: Response, next: NextFunction) => {
+export const protect = async (req: Request, res: Response, next: NextFunction) => {
   let token;
 
   if (req.headers.authorization?.startsWith("Bearer")) {
@@ -14,7 +15,12 @@ export const protect = (req: Request, res: Response, next: NextFunction) => {
 
   try {
     const decoded: any = jwt.verify(token, JWT_SECRET);
-    req.body.userId = decoded.userId; // attach userId to request for controllers
+
+    // Find user and attach to req
+    const user = await User.findById(decoded.userId).select("-password");
+    if (!user) return res.status(401).json({ message: "User not found" });
+
+    (req as any).user = user;
     next();
   } catch (err) {
     return res.status(401).json({ message: "Token invalid or expired" });

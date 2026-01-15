@@ -15,6 +15,9 @@ import { protect } from "../middleware/auth.middleware";
 const router = express.Router();
 
 // Public routes
+
+
+
 router.post("/register", register);
 router.post("/login", login);
 router.post("/forgot-password", forgotPassword);
@@ -26,3 +29,5 @@ router.post("/logout", protect, logout);
 router.put("/change-password", protect, changePassword);
 
 export default router;
+
+

@@ -41,13 +41,13 @@ app.use('/api/cart', cartRoutes);
 app.get('/', (req, res) => {
   res.json({
     message: 'API is running...',
-    documentation: `http://localhost:${PORT}/api-docs`,
+    documentation: `https://e-commerce-bdhr.onrender.com/api-docs/#/`,
     endpoints: {
-      auth: `http://localhost:${PORT}/api/auth`,
-      products: `http://localhost:${PORT}/api/products`,
-      categories: `http://localhost:${PORT}/api/categories`,
-      cart: `http://localhost:${PORT}/api/cart`,
-    },
+      auth: `https://e-commerce-bdhr.onrender.com/api-docs/Users`,
+      products: `https://e-commerce-bdhr.onrender.com/api-docs/#/Products`,
+      categories: `https://e-commerce-bdhr.onrender.com/api-docs/#/Categories`,
+        cart: `https://e-commerce-bdhr.onrender.com/api-docs/#/Cart`,
+      },
   });
 });
 
@@ -56,7 +56,7 @@ app.use((req, res) => res.status(404).json({ message: 'Endpoint not found' }));
 
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
-  console.log(`📚 API Documentation available at http://localhost:${PORT}/api-docs`);
+  console.log(`📚 API Documentation available at https://e-commerce-bdhr.onrender.com/api-docs/#/`);
   
   // Fixed: Type assertion to access paths
   const spec = swaggerSpec as any;

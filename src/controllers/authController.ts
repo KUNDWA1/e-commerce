@@ -15,7 +15,7 @@ const generateToken = (userId: string) => {
 
 /**
  * @swagger
- * /api/v1/users/register:
+ * /api/auth/register:
  *   post:
  *     summary: Register a new user
  *     description: Create a new user account with email and password
@@ -116,7 +116,7 @@ export const register = async (req: Request, res: Response) => {
 
 /**
  * @swagger
- * /api/v1/users/login:
+ * /api/auth/login:
  *   post:
  *     summary: Login user
  *     description: Authenticate user with email and password

@@ -14,6 +14,10 @@ const options= {
         url: 'http://localhost:3000',
         description: 'Development server',
       },
+      {
+        url: 'https://e-commerce-bdhr.onrender.com',
+        description: 'Development server',
+      },
     ],
     components: {
       securitySchemes: {

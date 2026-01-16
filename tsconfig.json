@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    /* ---------- Project Structure ---------- */
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /* ---------- Environment ---------- */
+    "target": "ES2020",
+    "module": "CommonJS",
+    "lib": ["ES2020"],
+    "types": ["node"],
+
+    /* ---------- Module Resolution ---------- */
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+
+    /* ---------- Output ---------- */
+    "sourceMap": true,
+
+    /* ---------- Type Safety ---------- */
+    "strict": true,
+
+    /* ---------- Performance ---------- */
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
